@@ -1,0 +1,40 @@
+> use clientdb
+switched to db clientdb
+
+> show databases
+admin     (empty)
+clientdb  0.078GB
+local     0.078GB
+
+> db.createCollection("company")
+{ "ok" : 1 }
+> show collections
+company
+system.indexes
+
+
+> db.company.insert({name:"Animainterno ТМ", tel:"(096) 003 36 60", person:"Бердников Д.О."});
+WriteResult({ "nInserted" : 1 })
+> db.company.find()
+{ "_id" : ObjectId("638169613e019dfbf08443f0"), "name" : "Animainterno ТМ", "tel" : "(096) 003 36 60", "person" : "Бердников Д.О." }
+
+
+> db.company.insert([{name:"Лепуф Дизайн Груп ТОВ ", tel:"(063)6735656", person:"Тютюник В.П."}, {name:"Сокме ТОВ", tel:"(03257) 74330", person:"Приходько В.М."}]);
+
+> db.company.find()
+{ "_id" : ObjectId("638169613e019dfbf08443f0"), "name" : "Animainterno ТМ", "tel" : "(096) 003 36 60", "person" : "Бердников Д.О." }
+{ "_id" : ObjectId("6381f0633e019dfbf08443f1"), "name" : "Лепуф Дизайн Груп ТОВ ", "tel" : "(063)6735656", "person" : "Тютюник В.П." }
+{ "_id" : ObjectId("6381f0633e019dfbf08443f2"), "name" : "Сокме ТОВ", "tel" : "(03257) 74330", "person" : "Приходько В.М." }
+
+
+
+
+
+
+ id | address_id | name                   | telephon        | person_id | +----+------------+-----------------------------------------+-----------------+-----------+ |  1 |        
+  1 | Animainterno ТМ                     | (096) 003 36 60 |         1 | |  2 | 
+  2 | Лепуф Дизайн Груп ТОВ               | (063)6735656    |         2 | |  3 |
+  3 | Сокме ТОВ                           | (03257) 74330   |         3 | 
+
+
+
